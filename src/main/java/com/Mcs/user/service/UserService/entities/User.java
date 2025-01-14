@@ -1,9 +1,9 @@
 package com.Mcs.user.service.UserService.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "micro_users")
@@ -20,7 +20,19 @@ public class User {
     private String email;
     @Column(name = "ABOUT")
     private String about;
-    //other user properties that you want
+
+
+    @Transient    // it used for not saving the data database
+    private List<Rating> ratings=new ArrayList<>();
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
+    }
+//other user properties that you want
 
 
     public String getUserId() {
