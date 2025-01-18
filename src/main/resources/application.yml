@@ -23,3 +23,12 @@ spring:
 # Server configuration
 server:
   port: 8081
+
+  #  Eureka Property
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka/ # Eureka Server URL
+      fetch-registry: true # Fetch registry from Eureka Server
+      register-with-eureka: true # Register this service with Eureka Server
+
